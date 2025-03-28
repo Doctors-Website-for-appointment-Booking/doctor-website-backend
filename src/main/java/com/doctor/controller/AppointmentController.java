@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/appointments")
-@CrossOrigin(origins = "https://doctor-website-backend-production.up.railway.app")
+@CrossOrigin(origins = "https://shyamhomeopathy.netlify.app")
 public class AppointmentController {
     private final AppointmentService appointmentService;
 
