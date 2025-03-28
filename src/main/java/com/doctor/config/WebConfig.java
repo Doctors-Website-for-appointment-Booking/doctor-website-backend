@@ -9,10 +9,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://shyamhomeopathy.netlify.app") // No trailing slash!
-                .allowedMethods("*") // Allow all methods (GET, POST, etc.)
+                .allowedOrigins("https://shyamhomeopathy.netlify.app")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
-                .maxAge(3600); // Cache preflight response for 1 hour
+                .maxAge(3600);
     }
 }
