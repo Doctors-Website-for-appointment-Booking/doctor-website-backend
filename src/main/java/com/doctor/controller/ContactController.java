@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/contacts")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://doctor-website-backend-production.up.railway.app")
 public class ContactController {
     private final ContactService contactService;
 
