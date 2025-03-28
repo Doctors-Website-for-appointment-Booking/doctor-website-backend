@@ -12,7 +12,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  // Allow all endpoints
-                        .allowedOrigins("https://shyamhomeopathy.netlify.app/") // Allow frontend domain
+                        .allowedOrigins("https://shyamhomeopathy.netlify.app") // Allow frontend domain
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow required HTTP methods
                         .allowedHeaders("*")
                         .allowCredentials(true);
