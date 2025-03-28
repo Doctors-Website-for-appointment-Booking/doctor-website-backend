@@ -1,22 +1,17 @@
-import org.springframework.context.annotation.Bean;
+package com.doctor.config;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CorsConfig {
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")  // Allow all endpoints
-                        .allowedOrigins("https://shyamhomeopathy.netlify.app") // Allow frontend domain
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow required HTTP methods
-                        .allowedHeaders("*")
-                        .allowCredentials(true);
-            }
-        };
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("https://shyamhomeopathy.netlify.app")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
