@@ -4,13 +4,14 @@ import com.doctor.dto.AppointmentDto;
 import com.doctor.entity.Appointment;
 import com.doctor.service.AppointmentService;
 import jakarta.mail.MessagingException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/appointments")
-// @CrossOrigin(origins = "https://shyamhomeopathy.netlify.app")
 public class AppointmentController {
+
     private final AppointmentService appointmentService;
 
     public AppointmentController(AppointmentService appointmentService) {
@@ -18,8 +19,10 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public ResponseEntity<Appointment> createAppointment(@RequestBody AppointmentDto appointmentDto) throws MessagingException {
+    public ResponseEntity<Appointment> bookAppointment(
+            @RequestBody AppointmentDto appointmentDto
+    ) throws MessagingException {
         Appointment appointment = appointmentService.createAppointment(appointmentDto);
-        return ResponseEntity.ok(appointment);
+        return new ResponseEntity<>(appointment, HttpStatus.CREATED); // 201 Created
     }
 }
