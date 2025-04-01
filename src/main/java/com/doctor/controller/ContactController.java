@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/contacts")
-// @CrossOrigin(origins = "https://shyamhomeopathy.netlify.app")
+//@CrossOrigin(origins = "http://localhost:5173")
 public class ContactController {
     private final ContactService contactService;
 
