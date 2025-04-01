@@ -47,7 +47,7 @@ public class CorsConfig {
         config.setMaxAge(maxAge);
 
         // Apply to all endpoints
-        source.registerCorsConfiguration("/**", config);
+        source.registerCorsConfiguration("/api/**", config);
         return new CorsFilter(source);
     }
 }
