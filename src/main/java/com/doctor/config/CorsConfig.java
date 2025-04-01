@@ -15,9 +15,8 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         // Allow your frontend domains
-        config.addAllowedOrigin("http://localhost:5173");
-        config.addAllowedOrigin("https://localhost:5173");
         config.addAllowedOrigin("https://shyamhomeopathy.netlify.app");
+        config.addAllowedOrigin("https://localhost:5173");
 
         // Allow all necessary methods
         config.addAllowedMethod("OPTIONS");
