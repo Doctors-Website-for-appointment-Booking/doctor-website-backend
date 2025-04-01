@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "https://shyamhomeopathy.netlify.app")
 @RequestMapping("/api/appointments")
+@CrossOrigin(origins = "https://shyamhomeopathy.netlify.app")
 public class AppointmentController {
     private final AppointmentService appointmentService;
 
