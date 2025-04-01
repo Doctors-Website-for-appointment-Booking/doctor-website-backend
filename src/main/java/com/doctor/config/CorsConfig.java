@@ -11,32 +11,27 @@ public class CorsConfig {
 
     @Bean
     public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-
-        // Allow your frontend domains
+        
+        // Allow your production and development domains
         config.addAllowedOrigin("https://shyamhomeopathy.netlify.app");
         config.addAllowedOrigin("https://localhost:5173");
-
-        // Allow all necessary methods
-        config.addAllowedMethod("OPTIONS");
-        config.addAllowedMethod("GET");
-        config.addAllowedMethod("POST");
-        config.addAllowedMethod("PUT");
-        config.addAllowedMethod("DELETE");
-
+        
+        // Allow all necessary HTTP methods
+        config.addAllowedMethod("*");
+        
         // Allow all headers
         config.addAllowedHeader("*");
-
-        // Allow credentials
+        
+        // Allow credentials if needed
         config.setAllowCredentials(true);
-
-        // Max age
+        
+        // Set max age
         config.setMaxAge(3600L);
 
-        // Apply to all endpoints
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-
+        
         return new CorsFilter(source);
     }
 }
